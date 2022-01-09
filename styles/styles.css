@@ -1,0 +1,85 @@
+body {
+  text-align: center;
+  font-family: Montserrat;
+  margin: 1em 2em;
+}
+
+h1 span {
+  display: block;
+}
+
+.buttons-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.buttons-container button {
+  font-family: Montserrat;
+  margin: 1em 1em 0em;
+  padding: 0.8em 1.75em;
+  border-radius: 2em;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons-container #get-request-button {
+  background-color: #e02c2c;
+  color: white;
+}
+
+.buttons-container #post-request-button {
+  background-color: #2143da;
+  color: white;
+}
+
+.buttons-container #put-request-button {
+  background-color: #b521da;
+  color: white;
+}
+
+.buttons-container #patch-request-button {
+  background-color: #38fff5;
+  color: black;
+}
+
+.buttons-container #delete-request-button {
+  background-color: #41ff2f;
+  color: black;
+}
+
+.buttons-container #simultaneous-request-button {
+  background-color: #f3f721;
+  color: black;
+}
+
+.buttons-container #axios-instance-button {
+  background-color: #ff8800;
+  color: black;
+}
+
+.buttons-container #intercept-request-button {
+  background-color: #00ffaa;
+  color: black;
+}
+
+pre {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+#myTextarea {
+  width: 100%;
+  min-height: 30rem;
+  font-family: Montserrat;
+  font-size: 0.8rem;
+  line-height: 1.4em;
+  text-align: start;
+}
+
+#myTextarea div {
+  display: block;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HTTP Requests</title>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+            defer
+        ></script>
+        <script src="../experimentation.js" defer></script>
+        <script src="../vendor.js" defer></script>
+        <link rel="stylesheet" href="styles/styles.css" />
+    </head>
+    <body>
+        <h1>Axios Experimentation <span>😎🤩👏🦁</span></h1>
+
+        <div class="buttons-container">
+            <button id="get-request-button">Retrieve all users (GET)</button>
+            <button id="post-request-button">Create a user (POST)</button>
+            <button id="put-request-button">Override a user (PUT)</button>
+            <button id="patch-request-button">Update a user (PATCH)</button>
+            <button id="delete-request-button">Delete a user (DELETE)</button>
+            <button id="simultaneous-request-button">
+                Simultaneous GET requests
+            </button>
+            <button id="axios-instance-button">Use axios instance</button>
+            <button id="intercept-request-button">
+                Activate Interceptor
+            </button>
+        </div>
+    </body>
+</html>

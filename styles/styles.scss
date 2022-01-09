@@ -1,0 +1,86 @@
+$font: Montserrat;
+
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin change-colour($background: grey, $foreground: black) {
+    background-color: $background;
+    color: $foreground;
+}
+
+body {
+    text-align: center;
+    font-family: $font;
+    margin: 1em 2em;
+}
+
+h1 span {
+    display: block;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    button {
+        font-family: $font;
+        margin: 1em 1em 0em;
+        padding: 0.8em 1.75em;
+        border-radius: 2em;
+        border: none;
+        cursor: pointer;
+    }
+
+    #get-request-button {
+        @include change-colour(rgb(224, 44, 44), white);
+    }
+
+    #post-request-button {
+        @include change-colour(rgb(33, 67, 218), white);
+    }
+
+    #put-request-button {
+        @include change-colour(rgb(181, 33, 218), white);
+    }
+
+    #patch-request-button {
+        @include change-colour(rgb(56, 255, 245));
+    }
+
+    #delete-request-button {
+        @include change-colour(rgb(65, 255, 47));
+    }
+
+    #simultaneous-request-button {
+        @include change-colour(rgb(243, 247, 33));
+    }
+
+    #axios-instance-button {
+        @include change-colour(rgb(255, 136, 0));
+    }
+
+    #intercept-request-button {
+        @include change-colour(rgb(0, 255, 170));
+    }
+}
+
+pre {
+    width: fit-content;
+}
+
+#myTextarea {
+    width: 100%;
+    min-height: 30rem;
+    font-family: $font;
+    font-size: 0.8rem;
+    line-height: 1.4em;
+    text-align: start;
+
+    div {
+        display: block;
+    }
+}
