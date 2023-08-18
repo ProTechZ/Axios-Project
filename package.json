@@ -1,0 +1,33 @@
+{
+  "name": "axios",
+  "version": "1.0.0",
+  "description": "a litte experiment with the js library axios",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "parcel public/index.html --public-url ./",
+    "build": "parcel build dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProTechZ/Axios-Project.git"
+  },
+  "author": "Zion Pulapakura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ProTechZ/Axios-Project/issues"
+  },
+  "homepage": "https://github.com/ProTechZ/Axios-Project#readme",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "node-sass": "^9.0.0",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.3",
+    "@types/node": "^20.5.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.9.3",
+    "parcel-bundler": "^1.12.5"
+  }
+}

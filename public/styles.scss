@@ -1,0 +1,96 @@
+@use 'sass:list';
+
+$font: Montserrat;
+
+@mixin change-colour($background: grey, $foreground: black) {
+  background-color: $background;
+  color: $foreground;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  font-family: $font;
+  margin: 16px 32px;
+}
+
+.btn {
+  font-family: $font;
+  margin: 16px 16px 0px 0px; // top, right, bottom, left
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#display-area {
+  padding: 16px 32px;
+  margin-top: 40px;
+  border: red 2px solid;
+
+  #status {
+    margin-bottom: 16px;
+  }
+}
+
+#display-users-area {
+  display: grid;
+  grid-template-areas:
+    'user-1 user-2 user-3'
+    'user-4 user-5 user-6'
+    'user-7 user-8 user-9'
+    'user-10 user-11 user-12';
+  gap: 20px;
+  vertical-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  #title {
+    margin-bottom: 16px;
+  }
+}
+
+.user-item {
+  padding: 15px 30px;
+  border: black 1px solid;
+  width: 130px;
+  height: 170px;
+
+  .user-email {
+    font-size: 10px;
+    margin: 3px 0 16px 0;
+  }
+
+  .user-avatar {
+    border: 1px dashed black;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  }
+}
+
+$buttons: get post put patch delete simultaneous;
+$button-colours: rgb(224, 44, 44) rgb(33, 67, 218) rgb(181, 33, 218)
+  rgb(56, 255, 245) rgb(65, 255, 47) rgb(243, 247, 33);
+
+@for $i from 1 through 6 {
+  @if $i <= 3 {
+    ##{list.nth($buttons, $i)}-btn {
+      @include change-colour(list.nth($button-colours, $i), white);
+    }
+  } @else {
+    ##{list.nth($buttons, $i)}-btn {
+      @include change-colour(list.nth($button-colours, $i));
+    }
+  }
+}
+
+// example from above @for loop
+//   get-btn {
+//    @include change-colour(list.nth($button-colours, $i), white)
+//   }
+// since get-btn is one of the first there, we inclue the white at the end of the change-colour
