@@ -87,14 +87,13 @@ function changeHeading(titleText: string, status: number) {
 export function displayGETData(data: { data: User[] }, status: number) {
   const { data: userList } = data;
   usersDisplayArea.innerHTML = ''; // clear any other data
-  changeHeading('Retrieved All the Users (GET)', status);
+  changeHeading('Retrieved Users (GET)', status);
 
   userList.forEach((user, index, _) => createUserElement(user, index + 1));
 }
 
 export function displayPOSTData(data: User, status: number) {
   usersDisplayArea.innerHTML = ''; // clear any other data
-  console.log('hi');
   changeHeading('Created A User (POST)', status);
 
   createUserElement(data, 2);
@@ -148,7 +147,7 @@ export function displaySimultaneousGETData(
   status:number,
 ) {
   usersDisplayArea.innerHTML = ''; // clear any other data
-  changeHeading('Retrieved All the Users (GET)', status);
+  changeHeading('Retrieved All the Users (Simultaneous GET)', status);
   
   data1.forEach((user, index, _) => createUserElement(user, index + 1));
   data2.forEach((user, index, _) => createUserElement(user, index + 7));

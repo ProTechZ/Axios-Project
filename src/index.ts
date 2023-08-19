@@ -12,7 +12,6 @@ const baseURL = 'https://reqres.in/api/users';
 
 export async function getUsers() {
   const { data, status } = await axios.get(baseURL);
-  console.log(status);
   displayGETData(data, status);
 }
 
@@ -23,7 +22,6 @@ export async function createUser() {
     email: 'john.doe@gmail.com',
     avatar: '../src/person.jpg',
   });
-  console.log(status);
 
   data.id = parseInt(data.id);
   displayPOSTData(data, status);
@@ -37,7 +35,6 @@ export async function overrideUser() {
     email: 'john.doe@gmail.com',
     avatar: '../src/person.jpg',
   });
-  console.log(status);
 
   displayPUTData(originalUser.data.data, data, status);
 }
