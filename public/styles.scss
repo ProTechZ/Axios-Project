@@ -30,7 +30,7 @@ body {
 #display-area {
   padding: 16px 32px;
   margin-top: 40px;
-  border: red 2px solid;
+  border: black 2px solid;
 
   #status {
     margin-bottom: 16px;
@@ -57,8 +57,6 @@ body {
 .user-item {
   padding: 15px 30px;
   border: black 1px solid;
-  width: 130px;
-  height: 170px;
 
   .user-email {
     font-size: 10px;
@@ -73,24 +71,28 @@ body {
   }
 }
 
-$buttons: get post put patch delete simultaneous;
-$button-colours: rgb(224, 44, 44) rgb(33, 67, 218) rgb(181, 33, 218)
+$btn-names: get-btn post-btn put-btn patch-btn delete-btn simultaneous-btn;
+$btn-colours: rgb(224, 44, 44) rgb(33, 67, 218) rgb(181, 33, 218)
   rgb(56, 255, 245) rgb(65, 255, 47) rgb(243, 247, 33);
 
 @for $i from 1 through 6 {
-  @if $i <= 3 {
-    ##{list.nth($buttons, $i)}-btn {
-      @include change-colour(list.nth($button-colours, $i), white);
-    }
-  } @else {
-    ##{list.nth($buttons, $i)}-btn {
-      @include change-colour(list.nth($button-colours, $i));
+  $btn: #{list.nth($btn-names, $i)};
+  $btn-colour: list.nth($btn-colours, $i);
+
+  ##{$btn} {
+    @if $i <= 3 {
+      // if it is the first 3 buttons, make it's text white
+      @include change-colour($btn-colour, white);
+    } @else {
+      // otherwise, make the text black
+      @include change-colour($btn-colour, black);
     }
   }
-}
 
-// example from above @for loop
-//   get-btn {
-//    @include change-colour(list.nth($button-colours, $i), white)
-//   }
-// since get-btn is one of the first there, we inclue the white at the end of the change-colour
+  ##{$btn}:hover {
+    border: 2px solid $btn-colour;
+    @include change-colour(white, black);
+    padding: 8px 28px;
+    // decreasing the padding by 2px due to the increase of size of the btn from the 2px border
+  }
+}

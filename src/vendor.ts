@@ -84,16 +84,20 @@ function changeHeading(titleText: string, status: number) {
   statusElement.style.color = statusColor;
 }
 
+function clearDisplayArea() {
+  usersDisplayArea.innerHTML = ''; // clear any other data
+}
+
 export function displayGETData(data: { data: User[] }, status: number) {
   const { data: userList } = data;
-  usersDisplayArea.innerHTML = ''; // clear any other data
+  clearDisplayArea();
   changeHeading('Retrieved Users (GET)', status);
 
   userList.forEach((user, index, _) => createUserElement(user, index + 1));
 }
 
 export function displayPOSTData(data: User, status: number) {
-  usersDisplayArea.innerHTML = ''; // clear any other data
+  clearDisplayArea();
   changeHeading('Created A User (POST)', status);
 
   createUserElement(data, 2);
@@ -104,13 +108,12 @@ function userDesription(text: string, index: number) {
   desc.textContent = text;
   desc.style.gridArea = `user-${index}`;
   desc.style.verticalAlign = 'center';
-  desc.style.marginTop = '40%';
   desc.style.textDecoration = 'underline';
   usersDisplayArea.appendChild(desc);
 }
 
 export function displayPUTData(originalUser: User, data: User, status: number) {
-  usersDisplayArea.innerHTML = ''; // clear any other data
+  clearDisplayArea();
   changeHeading('Override A User (PUT)', status);
 
   userDesription('Original User', 1);
@@ -125,7 +128,7 @@ export function displayPATCHData(
   data: User,
   status: number
 ) {
-  usersDisplayArea.innerHTML = ''; // clear any other data
+  clearDisplayArea();
   changeHeading('Updated A User (PUT)', status);
 
   userDesription('Original User', 1);
@@ -137,18 +140,18 @@ export function displayPATCHData(
 }
 
 export function displayDELETEData(status: number) {
-  usersDisplayArea.innerHTML = ''; // clear any other data
+  clearDisplayArea();
   changeHeading('Sucessfully deleted user 2', status);
 }
 
 export function displaySimultaneousGETData(
-  data1:  User[],
-  data2:  User[],
-  status:number,
+  data1: User[],
+  data2: User[],
+  status: number
 ) {
-  usersDisplayArea.innerHTML = ''; // clear any other data
+  clearDisplayArea();
   changeHeading('Retrieved All the Users (Simultaneous GET)', status);
-  
+
   data1.forEach((user, index, _) => createUserElement(user, index + 1));
   data2.forEach((user, index, _) => createUserElement(user, index + 7));
 }
